@@ -1,6 +1,6 @@
 CREATE TABLE "wetter" (
 	"id" INTEGER NOT NULL UNIQUE,
-	"sensor_id" INTEGER NOT NULL UNIQUE,
+	"sensor_id" INTEGER,
 	"sensor_type" TEXT,
 	"location" TEXT,
 	"latitude" REAL,
@@ -13,7 +13,7 @@ CREATE TABLE "wetter" (
 
 CREATE TABLE "feinstaub" (
 	"id" INTEGER NOT NULL UNIQUE,
-	"sensor_id" INTEGER NOT NULL UNIQUE,
+	"sensor_id" INTEGER,
 	"sensor_type" TEXT,
 	"location" TEXT,
 	"latitude" REAL,
