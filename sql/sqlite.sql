@@ -1,18 +1,18 @@
 CREATE TABLE "wetter" (
-	"id" INTEGER NOT NULL UNIQUE,
+	"id" TEXT NOT NULL,
 	"sensor_id" INTEGER,
 	"sensor_type" TEXT,
 	"location" TEXT,
 	"latitude" REAL,
 	"longitude" REAL,
-	"timestemp" TEXT
+	"timestemp" TEXT,
 	"temperatur" REAL,
 	"humidity" REAL,
 	PRIMARY KEY ("id")
 );
 
 CREATE TABLE "feinstaub" (
-	"id" INTEGER NOT NULL UNIQUE,
+	"id" TEXT NOT NULL,
 	"sensor_id" INTEGER,
 	"sensor_type" TEXT,
 	"location" TEXT,
@@ -20,10 +20,10 @@ CREATE TABLE "feinstaub" (
 	"longitude" REAL,
 	"timestemp" TEXT,
 	"P1" REAL,
-	"durP1" REAL,
-	"ratioP1" REAL,
+	"durP1" TEXT,
+	"ratioP1" TEXT,
 	"P2" REAL,
-	"durP2" REAL,
-	"ratioP2" REAL,
+	"durP2" TEXT,
+	"ratioP2" TEXT,
 	PRIMARY KEY ("id")
 );
