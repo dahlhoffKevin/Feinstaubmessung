@@ -1,2 +1,0 @@
-sensor_id;sensor_type;location;lat;lon;timestamp;temperature;humidity
-1;DHT22;test;test;test
