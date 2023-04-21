@@ -6,7 +6,7 @@ import uuid
 class Settings:
     folder_path = "data"
     delimiter = ";"
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('sql/feinstaubdb.db')
     cur = conn.cursor()
 
 def main():
