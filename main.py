@@ -144,9 +144,11 @@ class Calendar:
             
             Settings.cur.execute(sql2_fetch_command)
             sql2_result = Settings.cur.fetchall()
-            print(sql_result)
 
-            data = f"Maximale Temperatur: {sql_result[0][0]}\nMinimale Temperatur: {sql_result[0][1]}\nDurchschnittliche Temperatur: {sql_result[0][2]}\nLuftfeuchtigkeit: {sql_result[0][3]}\nFeinstaub:\n\tP1: {sql2_result[0][0]}\n\tP2: {sql2_result[0][1]}"
+            if sql_result[0][0] == None and sql2_result[0][0] == None:
+                data = "Keine Daten gefunden"
+            else:
+                data = f"Maximale Temperatur: {sql_result[0][0]}\nMinimale Temperatur: {sql_result[0][1]}\nDurchschnittliche Temperatur: {sql_result[0][2]}\nLuftfeuchtigkeit: {sql_result[0][3]}\nFeinstaub:\n\tP1: {sql2_result[0][0]}\n\tP2: {sql2_result[0][1]}"
             self.data.config(text=data)
         else:
             self.data.config(text="")
@@ -160,7 +162,7 @@ def main():
     root.config(bg=Settings.main_bg_color)
     root.resizable(width=False, height=False)
 
-    app = Calendar(root, Settings.start_year, Settings.start_month)
+    Calendar(root, Settings.start_year, Settings.start_month)
     root.mainloop()
 
 
