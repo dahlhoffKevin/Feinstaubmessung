@@ -103,6 +103,10 @@ class Calendar:
         self.update()
     
     def update(self):
+        # Entferne alle vorhandenen Buttons
+        for button in self.table.grid_slaves():
+            button.grid_forget()
+
         self.cal = calendar.monthcalendar(self.year, self.month)
         self.month_name = calendar.month_name[self.month]
         self.lbl_month.config(text=self.month_name + " " + str(self.year))
