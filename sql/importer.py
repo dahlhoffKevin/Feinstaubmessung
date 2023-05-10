@@ -9,7 +9,7 @@ class Settings:
     conn = sqlite3.connect('sql/feinstaubdb.db')
     cur = conn.cursor()
 
-def main():
+def importer():
     for file_name in os.listdir(Settings.folder_path):
         if not file_name.endswith('.csv'): continue
         file_path = os.path.join(Settings.folder_path, file_name)
@@ -69,4 +69,4 @@ def main():
     Settings.conn.close()
 
 if __name__ == '__main__':
-    main()
+    importer()

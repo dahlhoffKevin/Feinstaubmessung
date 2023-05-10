@@ -42,7 +42,11 @@ class Calendar:
         # Titelleiste mit Vor- und Zurück-Pfeilen
         self.header = tk.Frame(self.parent)
         self.header.pack(side="top", pady=10)
-        self.header.config(bg=Settings.header_color)
+        self.header.config(bg=Settings.main_bg_color)
+        
+        self.btn_update = tk.Button(self.header, text="Heute", command=self.today)
+        self.btn_update.pack(side="left", padx=10)
+        self.btn_update.config(bg=Settings.button_color)
         
         self.btn_prev = tk.Button(self.header, text="<", command=self.prev_month)
         self.btn_prev.pack(side="left")
@@ -55,7 +59,11 @@ class Calendar:
         self.btn_next = tk.Button(self.header, text=">", command=self.next_month)
         self.btn_next.pack(side="left")
         self.btn_next.config(bg=Settings.button_color)
-        
+
+        self.btn_update = tk.Button(self.header, text="Update", command=self.create_popup)
+        self.btn_update.pack(side="right", padx=10)
+        self.btn_update.config(bg=Settings.button_color)
+
         # Kalendergitter
         self.table = tk.Frame(self.parent)
         self.table.pack(side="top", pady=10)
@@ -85,6 +93,14 @@ class Calendar:
         self.data = tk.Label(self.parent, text="")
         self.data.config(bg=Settings.data_color, fg=Settings.data_font_color)
         self.data.pack(side="top", pady=10)
+    
+    def create_popup(self):
+        popup = tk.Toplevel()
+        popup.title("Info")
+        label = tk.Label(popup, text="Funktion noch nicht implementiert")
+        label.pack(padx=20, pady=20)
+        button = tk.Button(popup, text="OK", command=popup.destroy)
+        button.pack(pady=10)
     
     def prev_month(self):
         if self.month == 1:
@@ -153,6 +169,14 @@ class Calendar:
         else:
             self.data.config(text="")
 
+    def update_data(self):
+        pass
+
+    def today(self):
+        self.year = datetime.datetime.today().year
+        self.month = datetime.datetime.today().month
+        self.update()
+
 def main():
     root = tk.Tk()
 
@@ -164,7 +188,6 @@ def main():
 
     Calendar(root, Settings.start_year, Settings.start_month)
     root.mainloop()
-
 
 if __name__ == "__main__":
     main()
