@@ -1,13 +1,7 @@
 import csv
-import sqlite3
 import os
 import uuid
-
-class Settings:
-    folder_path = "data"
-    delimiter = ";"
-    conn = sqlite3.connect('sql/feinstaubdb.db')
-    cur = conn.cursor()
+from Settings import Settings as Settings
 
 def importer():
     for file_name in os.listdir(Settings.folder_path):
