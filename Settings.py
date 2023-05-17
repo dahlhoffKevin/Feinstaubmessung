@@ -3,7 +3,7 @@ import sqlite3
 class Settings:
     # Generelle Einstellungen
     title = "Feinstaubmessung"
-    geometry = "400x550"
+    geometry = "600x550"
     start_year, start_month = 2023, 4
     calender_days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 

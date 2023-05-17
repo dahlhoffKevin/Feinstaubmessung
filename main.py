@@ -15,7 +15,9 @@ class Calendar:
         self.create_widgets()
     
     def create_widgets(self):
-        # Titelleiste mit Vor- und Zurück-Pfeilen
+        """
+        -- Start -- Titelleiste mit Vor- und Zurück-Pfeilen
+        """
         self.header = tk.Frame(self.parent)
         self.header.pack(side="top", pady=10)
         self.header.config(bg=Settings.main_bg_color)
@@ -35,15 +37,19 @@ class Calendar:
         self.btn_next = tk.Button(self.header, text=">", command=self.next_month)
         self.btn_next.pack(side="left")
         self.btn_next.config(bg=Settings.button_color)
+        """
+        -- Ende -- Titelleiste mit Vor- und Zurück-Pfeilen
+        """
 
-        self.btn_update = tk.Button(self.header, text="Update", command=self.create_popup)
-        self.btn_update.pack(side="right", padx=10)
-        self.btn_update.config(bg=Settings.button_color)
-
-        # Kalendergitter
+        """
+        -- Start -- Kalendergitter
+        """
         self.table = tk.Frame(self.parent)
         self.table.pack(side="top", pady=10)
         self.table.config(bg=Settings.calender_color)
+        """
+        -- Ende -- Kalendergitter
+        """
         
         days = self.days
         for i, day in enumerate(days):
