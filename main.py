@@ -22,9 +22,9 @@ class Calendar:
         self.header.pack(side="top", pady=10)
         self.header.config(bg=Settings.main_bg_color)
         
-        self.btn_update = tk.Button(self.header, text="Heute", command=self.today)
-        self.btn_update.pack(side="left", padx=10)
-        self.btn_update.config(bg=Settings.button_color)
+        self.btn_today = tk.Button(self.header, text="Heute", command=self.today)
+        self.btn_today.pack(side="left", padx=10)
+        self.btn_today.config(bg=Settings.button_color)
         
         self.btn_prev = tk.Button(self.header, text="<", command=self.prev_month)
         self.btn_prev.pack(side="left")
@@ -37,6 +37,10 @@ class Calendar:
         self.btn_next = tk.Button(self.header, text=">", command=self.next_month)
         self.btn_next.pack(side="left")
         self.btn_next.config(bg=Settings.button_color)
+
+        self.btn_update = tk.Button(self.header, text="Your Mums Gay", command=self.update_data)
+        self.btn_update.pack(side="left")
+        self.btn_update.config(bg=Settings.button_color)
         """
         -- Ende -- Titelleiste mit Vor- und Zurück-Pfeilen
         """
