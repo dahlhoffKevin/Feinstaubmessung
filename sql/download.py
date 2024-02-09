@@ -25,13 +25,13 @@ def download_days(number_of_days):
 
     for i in range(1, number_of_days + 1): # no data for today
         current_date = datetime.date.today() - i * one_day
-        base_url = f'{BASE}/{current_date}/{current_date}'
+        base_url = f'{BASE}{current_date}/{current_date}'
 
         if str(current_date)[0:4] == "2021": break
-        if not str(current_date)[0:4] == str(datetime.date.today().year):
-            base_url = f'{BASE}/{datetime.date.today().year - 1}/{current_date}/{current_date}'
+        # if not str(current_date)[0:4] == str(datetime.date.today().year):
+        #     base_url = f'{BASE}{datetime.date.today().year - 1}/{current_date}/{current_date}'
 
-        for sensor in ['sds011_sensor_3659', 'dht22_sensor_3660']:
+        for sensor in ['sds011_sensor_3659', 'sds011_sensor_36593']:
             url = f'{base_url}_{sensor}.csv'
             print('download', url)
             try:

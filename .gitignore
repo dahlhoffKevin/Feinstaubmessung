@@ -1,2 +1,4 @@
 # ignore all .csv files
 *.csv
+# ignore data folder
+/data/
